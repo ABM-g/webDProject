@@ -1,18 +1,16 @@
-/**
- * Created by chuandong on 15/11/27.
- */
-
 function load() {
-
     var btns = document.querySelectorAll('#calculator span');
     var operators = ['+', '-', 'x', '÷'];
     var inputScreen = document.querySelector('#screen');
     var btnValue;
     var input;
+    var c = new Audio('c.mp3');
+    var e = new Audio('e.mp3');
+
 
     for(var i=0; i< btns.length; i++) {
 
-        var decimalAdded = false; // Flag used to avoid two decimal
+        var decimalAdded = false;
 
         btns[i].addEventListener('click', function () {
 
@@ -23,33 +21,26 @@ function load() {
                 case 'C':
                     inputScreen.innerHTML = '';
                     decimalAdded = false;
+                    c.play();
                     break;
                 case '=':
-
-                    // Last char of string
                     var lastChar = input[input.length - 1];
-
-                    // Replace x to *, + to / which could be calculated in eval
-                    input = input.replace(/x/g, '*').replace(/÷/g, '/');
-
-                    // Checking the last character of the input.
-                    // If it's an operator or a decimal, remove it
-                    // /.$/ means last char in regex
                     if(operators.indexOf(lastChar) > -1 || lastChar == '.')
                         input = input.replace(/.$/, '');
-
                     if(input) {
                         // If the argument is an expression, eval() evaluates the expression.
                         // If the argument is one or more JavaScript statements, eval() executes the statements.
                         inputScreen.innerHTML = eval(input);
                     }
                     decimalAdded = false;
+                    e.play();
                     break;
                 case '.':
                     if(!decimalAdded) {
                         inputScreen.innerHTML += btnValue;
                         decimalAdded = true;
                     }
+                    c.play();
                     break;
                 case '+':
                 case '-':
@@ -71,10 +62,12 @@ function load() {
                         inputScreen.innerHTML = input.replace(/.$/, btnValue);
                     }
                     decimalAdded = false;
+                    c.play();
                     break;
                 default:
                     inputScreen.innerHTML += btnValue;
                     decimalAdded = false;
+                    c.play();
                     break;
             }
         });
