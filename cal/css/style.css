@@ -6,14 +6,11 @@
 *{
     margin: 0;
     padding: 0;
-    /* Padding and border are included in the element's total width and height */
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     font:bold 14px font1,sans-serif;
 }
-
-
 html {
     height: 100%;
     background: white;
@@ -24,31 +21,22 @@ html {
 #calculator {
     width: 325px;
     height: auto;
-
     margin: 100px auto;
     padding: 20px 20px 9PX;
-
     background: #d7d3ca;
     background: linear-gradient(#d7d3ca, #c8c3b8);
     border-radius: 3px;
-    /* Using box shadows to create 3D effects */
     box-shadow: 0px 6px #908c82, 0px 10px 15px rgba(0,0,0,0.2);
 }
 
 #screen {
     float: right;
-
     height: 40px;
     width: 212px;
-
     padding: 0 10px;
-
     background: #dbead7;
     border-radius: 3px;
-    /* Inset shadow on the screen to create indent */
     box-shadow: inset 2px 4px rgba(0, 0, 0, 0.2);
-
-    /* Typography */
     font-size: 19px;
     line-height: 40px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
@@ -56,45 +44,35 @@ html {
    
 }
 
-/* Clear Floats to make sure #calculator includes them correctly */
 .keys, .top {
     overflow: hidden;
 }
 
-/* Applying css on all the keys */
 .keys span, #clear {
     float: left;
     position: relative;
     top: 0;
-    /* Specifies the type of cursor to be displayed when pointing on an element. */
     cursor: pointer;
-
     width: 66px;
     height: 36px;
-
     background: #77767e;
     border-radius: 3px;
     box-shadow: 0px 10px rgba(0, 0, 0, 0.3);
-
     margin: 0 7px 11px 0;
-
     color: white;
     line-height: 36px;
     font-size: 16px;
     text-align: center;
 
     user-select: none;
-
-    /* Transitions allows you to change property values smoothly  */
 }
 
 .keys span.operator {
     background: #2f2e34;
-    margin-right: 0; /* 7px in previous setting*/
+    margin-right: 0;
     box-shadow: 0px 9px #434346;
 }
 
-/* Eval Button */
 .keys span.eval {
     background: #c4a062;
     box-shadow: 0px 9px #9d7a3f;
@@ -111,7 +89,6 @@ html {
     top: 9px;
 }
 
-/* Clear Button */
 #clear {
     background: #c26e79;
     box-shadow: 0px 9px #9a5a62;
@@ -128,8 +105,6 @@ html {
     top: 9px;
     box-shadow: 0px 0px #d3545d;
 }
-
-/* Other Buttons */
 .keys span:hover {
     background: #b0aebd;
     box-shadow: 0px 9px #8b8a91;
